@@ -3,6 +3,7 @@
   height: 100px;
   background-color: gainsboro;
   text-align: center;
+  position: fixed;
 }
 
 a {

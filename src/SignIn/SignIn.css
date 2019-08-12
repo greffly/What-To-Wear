@@ -1,0 +1,31 @@
+.signInPage {
+  display: grid;
+  grid-template-rows: 100px auto 150px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(190, 189, 189);
+}
+
+.signInForm {
+  grid-row: 3;
+  align-self: center;
+}
+
+.signInInput {
+  padding: 8px;
+  margin: 5px;
+}
+
+.username,
+.password {
+  margin: 20px 0;
+  font-size: 1.4em;
+}
+
+input {
+  font-size: 0.6em;
+}
+
+.redirectToSignUp {
+  grid-row: 5;
+}

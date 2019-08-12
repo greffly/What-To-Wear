@@ -1,8 +1,9 @@
 .landingPage {
   display: grid;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 100px auto 150px;
   width: 100%;
   height: 100vh;
+  background-color: rgb(190, 189, 189);
 }
 
 .header {
@@ -10,11 +11,37 @@
 }
 
 .introPage {
+  display: grid;
   grid-row: 2;
-  background-color: pink;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 70% 30%;
+  font-size: 1.2em;
 }
 
-.landingPagePhoto {
+.landingPhoto {
+  grid-column: 2;
   height: 200px;
   width: 200px;
+  background-color: whitesmoke;
+  justify-self: center;
+  align-self: center;
+}
+
+.introBlurb {
+  grid-column: 2;
+  align-self: center;
+}
+
+.signButtons {
+  grid-row: 3;
+  align-self: center;
+}
+
+.signUpInButtons {
+  width: 100px;
+  height: 45px;
+  background-color: gray;
+  margin: 10px;
+  border: none;
+  font-size: 1em;
 }

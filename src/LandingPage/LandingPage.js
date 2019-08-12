@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import './LandingPage.css';
 
@@ -7,15 +8,23 @@ const LandingPage = props => {
     <div className='landingPage'>
       <Header className='header' />
       <div className='introPage'>
-        <img
-          src='../images/models.jpeg'
-          alt='models'
-          className='landingPagePhoto'
-        />
+        <p className='landingPhoto'>Landing Photo Placeholder</p>
         <p className='introBlurb'>
           A social sharing app for helping each other find the best possible
           outfit for the occasion.
         </p>
+      </div>
+      <div className='signButtons'>
+        <Link to='/sign-in'>
+          <button type='submit' className='signUpInButtons'>
+            Sign In
+          </button>
+        </Link>
+        <Link to='/sign-up'>
+          <button type='submit' className='signUpInButtons'>
+            Sign Up
+          </button>
+        </Link>
       </div>
     </div>
   );
