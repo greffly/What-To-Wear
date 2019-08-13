@@ -1,0 +1,21 @@
+.oneResult {
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.pieChartResults {
+  margin: 0 20px 30px 20px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  align-self: center;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

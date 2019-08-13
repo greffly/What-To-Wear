@@ -1,0 +1,30 @@
+.resultsPage {
+  display: grid;
+  grid-template-rows: 100px auto 150px;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.myResults {
+  grid-row: 2;
+}
+
+.addOccasionButton {
+  grid-row: 3;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.submitButtons {
+  font-size: 1em;
+  align-self: center;
+  bottom: 0;
+}
+
+#addAnotherButton {
+  width: 170px;
+  height: 65px;
+}

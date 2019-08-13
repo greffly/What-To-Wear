@@ -3,7 +3,7 @@
   grid-template-rows: 100px auto 150px;
   width: 100%;
   height: 100vh;
-  background-color: rgb(190, 189, 189);
+  background-color: white;
 }
 
 .signInForm {
@@ -24,6 +24,8 @@
 
 input {
   font-size: 0.6em;
+  border: 1px solid gray;
+  border-radius: 2px;
 }
 
 .redirectToSignUp {

@@ -8,20 +8,21 @@ const LandingPage = props => {
     <div className='landingPage'>
       <Header className='header' />
       <div className='introPage'>
-        <p className='landingPhoto'>Landing Photo Placeholder</p>
+        <img src='/images/models.jpeg' alt='models' className='landingPhoto' />
+        {/* <p className='landingPhoto'>Landing Photo Placeholder</p> */}
         <p className='introBlurb'>
-          A social sharing app for helping each other find the best possible
-          outfit for the occasion.
+          A social sharing app for helping people find the best possible outfit
+          for the occasion.
         </p>
       </div>
       <div className='signButtons'>
         <Link to='/sign-in'>
-          <button type='submit' className='signUpInButtons'>
+          <button type='submit' className='submitButtons'>
             Sign In
           </button>
         </Link>
         <Link to='/sign-up'>
-          <button type='submit' className='signUpInButtons'>
+          <button type='submit' className='submitButtons'>
             Sign Up
           </button>
         </Link>

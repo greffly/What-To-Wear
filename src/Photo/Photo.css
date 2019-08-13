@@ -4,17 +4,23 @@
   position: relative;
 }
 
-.photo {
-  height: 150px;
+.wrapper {
+  overflow: hidden;
+  height: 170px;
   width: 150px;
-  background-color: gray;
   align-self: center;
+  margin-bottom: 15px;
+}
+
+.photo {
+  width: 160px;
+  background-color: gray;
   z-index: -1;
 }
 
 .wearThis {
   position: absolute;
-  top: 70%;
+  top: 74%;
   left: 30%;
   width: 150px;
   height: 40px;

@@ -12,23 +12,23 @@ const SignUp = props => {
         <div className='username'>
           <label>Enter Username</label>
           <br />
-          <input type='text' placeholder='username' />
+          <input type='text' placeholder='username' className='signUpInput' />
           <br />
         </div>
         <div className='password'>
           <label>Password</label>
           <br />
-          <input type='text' placeholder='password' />
+          <input type='text' placeholder='password' className='signUpInput' />
           <br />
         </div>
         <div className='password'>
           <label>Re-Enter Password</label>
           <br />
-          <input type='text' placeholder='password' />
+          <input type='text' placeholder='password' className='signUpInput' />
           <br />
         </div>
         <Link to='/home'>
-          <button type='submit' className='signUpInButtons'>
+          <button type='submit' className='submitButtons'>
             Sign Up!
           </button>
         </Link>

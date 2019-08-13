@@ -3,7 +3,7 @@
   grid-template-rows: 100px auto 150px;
   width: 100%;
   height: 100vh;
-  background-color: rgb(190, 189, 189);
+  background-color: white;
 }
 
 .header {
@@ -22,7 +22,7 @@
   grid-column: 2;
   height: 200px;
   width: 200px;
-  background-color: whitesmoke;
+  background-color: gainsboro;
   justify-self: center;
   align-self: center;
 }
@@ -37,11 +37,12 @@
   align-self: center;
 }
 
-.signUpInButtons {
-  width: 100px;
+.submitButtons {
+  width: 110px;
   height: 45px;
-  background-color: gray;
+  background-color: gainsboro;
   margin: 10px;
   border: none;
   font-size: 1em;
+  border-radius: 5px;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Header from '../Header/Header';
 import Photo from '../Photo/Photo';
@@ -17,6 +18,14 @@ const HomePage = props => {
           <Photo />
           <Photo />
         </div>
+      </div>
+      <div className='addResultsLink'>
+        <Link to='/add-occasion'>
+          <p className='addButton1'>Add an Occasion</p>
+        </Link>
+        <Link to='/results'>
+          <p className='addButton2'>See my Occasions</p>
+        </Link>
       </div>
     </div>
   );

@@ -22,8 +22,8 @@ const SignIn = props => {
           <br />
         </div>
         <Link to='/home'>
-          <button type='submit' className='signUpInButtons'>
-            Sign In!
+          <button type='submit' className='submitButtons'>
+            Sign In
           </button>
         </Link>
       </form>

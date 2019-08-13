@@ -4,7 +4,9 @@ import './Photo.css';
 const Photo = props => {
   return (
     <div className='photoBox'>
-      <p className='photo'>Photo</p>
+      <div className='wrapper'>
+        <img src='/images/nike1.jpg' alt='nike outfit' className='photo' />
+      </div>
       <button type='submit' className='wearThis'>
         Wear This!
       </button>

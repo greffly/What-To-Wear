@@ -1,0 +1,35 @@
+.addOccasion {
+  display: grid;
+  grid-template-rows: 100px 80px auto 150px;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.addOccasionContent {
+  margin-top: 100px;
+}
+
+.occasionInput {
+  margin-top: 20px;
+}
+
+.photoUploader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.uploadPhoto,
+.addInput {
+  margin: 5px;
+  padding: 5px 8px;
+}
+
+.uploadPhoto {
+  margin: 10px;
+}
