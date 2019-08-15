@@ -1,0 +1,18 @@
+.userPhotos {
+  padding: 0;
+}
+
+.oneUserOccasion {
+  background-color: whitesmoke;
+  margin: 20px 20px 0;
+  border-radius: 5px;
+  padding-top: 1px;
+}
+
+.userName {
+  margin-bottom: 5px;
+}
+
+.occasionName {
+  margin: 0;
+}

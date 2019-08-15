@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router';
 import './AddOccasion.css';
 import Header from '../Header/Header';
 
 const AddOccasion = props => {
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
   return (
     <div className='addOccasion'>
       <Header />
@@ -38,13 +40,29 @@ const AddOccasion = props => {
               className='uploadPhoto'
             />
           </div>
-          <button type='submit' className='submitButtons'>
+          {/* never access the real dom from the virtual dom */}
+          <button
+            type='submit'
+            className='submitButtons'
+            onClick={e => {
+              e.preventDefault();
+              setShowAddedMessage(true);
+              setTimeout(() => {
+                props.history.push('/results');
+              }, 1500);
+            }}
+          >
             Sumbit
           </button>
+          {showAddedMessage && (
+            <div className='addedMessage'>
+              <p>Added!</p>
+            </div>
+          )}
         </form>
       </div>
     </div>
   );
 };
 
-export default AddOccasion;
+export default withRouter(AddOccasion);

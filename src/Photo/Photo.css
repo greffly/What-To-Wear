@@ -6,27 +6,39 @@
 
 .wrapper {
   overflow: hidden;
-  height: 170px;
-  width: 150px;
+  height: 310px;
+  width: 290px;
   align-self: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 .photo {
-  width: 160px;
+  width: 300px;
   background-color: gray;
   z-index: -1;
 }
 
 .wearThis {
   position: absolute;
-  top: 74%;
-  left: 30%;
-  width: 150px;
+  font-size: 0.9em;
+  top: 84%;
+  align-self: center;
+  width: 290px;
   height: 40px;
   background-color: gainsboro;
 }
 
 .wearThis:hover {
   background-color: rgb(196, 196, 196);
+}
+
+.selectWearIt {
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  left: 0;
+  right: 0;
+  transform: rotate(340deg);
+  background-color: rgb(212, 212, 212, 0.8);
 }

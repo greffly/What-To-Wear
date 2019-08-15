@@ -7,7 +7,7 @@ const SignUp = props => {
   return (
     <div className='signUpPage'>
       <Header className='Header' />
-      <h2 class='signUp'>Sign Up</h2>
+      <h2 className='signUp'>Sign Up</h2>
       <form className='signUpForm'>
         <div className='username'>
           <label>Enter Username</label>
@@ -33,7 +33,7 @@ const SignUp = props => {
           </button>
         </Link>
       </form>
-      <p class='redirectToSignIn'>
+      <p className='redirectToSignIn'>
         Already have an account?{' '}
         <Link to='/sign-in'>
           <span className='link'>Sign in here.</span>
