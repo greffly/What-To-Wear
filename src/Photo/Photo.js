@@ -24,8 +24,10 @@ class Photo extends Component {
             e.preventDefault();
             this.setState({ showWearIt: true });
             setTimeout(() => {
-              this.props.history.push('/results');
-            }, 2500);
+              this.props.history.push('/home');
+              this.setState({ showWearIt: false });
+              window.scrollTo(0, 0);
+            }, 1500);
           }}
         >
           Wear This!

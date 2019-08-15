@@ -7,12 +7,20 @@ import sampleOccasions from '../store';
 
 //Id like to style the buttons on this page differently
 export default class HomePage extends Component {
-  state = {
-    occasions: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      occasions: []
+    };
+  }
   setOccassion(occasions) {
     this.setState({
       occasions
+    });
+  }
+  setOccasionIndex(index) {
+    this.setState({
+      index
     });
   }
   componentDidMount() {
@@ -24,21 +32,22 @@ export default class HomePage extends Component {
     });
   };
   render() {
+    const index = Math.floor(Math.random() * this.state.occasions.length);
     return (
       <div className='homePage'>
         <Header className='header' />
         <div className='userOccasion'>
-          {/* TODO .map here */}
-          {Object.values(this.state.occasions).map((occasion, index) => (
+          {this.state.occasions.length > 0 && (
             <Occasion
-              key={index}
+              key={this.state.index}
+              index={this.state.index}
               name={this.state.occasions[index].name}
               occasion={this.state.occasions[index].occasion}
               photo1={this.state.occasions[index].photo1}
               photo2={this.state.occasions[index].photo2}
               photo3={this.state.occasions[index].photo3}
             />
-          ))}
+          )}
         </div>
         <div className='addResultsLink'>
           <Link to='/add-occasion'>
