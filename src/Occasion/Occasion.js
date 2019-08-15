@@ -21,7 +21,7 @@ export default function Occasion(props) {
         <h3 className='occasionName'>{occasion}</h3>
       </div>
       <div className='userPhotos'>
-        <ul className='userPhotos' key={key}>
+        <ul className='userPhotos' key={{ occasion } + { key }}>
           <Photo picture={photo1} description={name} key={key} />
           <Photo picture={photo2} description={name} key={key} />
           <Photo picture={photo3} description={name} key={key} />
