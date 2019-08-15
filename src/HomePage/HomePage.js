@@ -29,13 +29,14 @@ export default class HomePage extends Component {
         <Header className='header' />
         <div className='userOccasion'>
           {/* TODO .map here */}
-          {Object.keys(this.state.occasions).map(occasion => (
+          {Object.values(this.state.occasions).map(occasion => (
             <Occasion
-              name={this.state.name}
-              occasion={this.state.occasion}
-              photo1={this.state.photo1}
-              photo2={this.state.photo2}
-              photo3={this.state.photo3}
+              key={occasion}
+              name={this.state.occasions[0].name}
+              occasion={this.state.occasions[0].occasion}
+              photo1={this.state.occasions[0].photo1}
+              photo2={this.state.occasions[0].photo2}
+              photo3={this.state.occasions[0].photo3}
             />
           ))}
         </div>

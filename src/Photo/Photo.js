@@ -9,7 +9,7 @@ class Photo extends Component {
   render() {
     console.log(this.props.picture);
     return (
-      <li className='photoBox'>
+      <li className='photoBox' key={this.props.key}>
         <div className='wrapper'>
           <img
             src={this.props.picture}

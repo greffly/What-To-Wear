@@ -4,25 +4,9 @@ import './Occasion.css';
 import Photo from '../Photo/Photo';
 
 export default function Occasion(props) {
-  // state = {
-  //   occasions: []
-  // };
-  // setOccassion(occasions) {
-  //   this.setState({
-  //     occasions
-  //   });
-  // }
-  // componentDidMount() {
-  //   this.setState(sampleOccasions);
-  // }
-  // addOccasion = occasionName => {
-  //   this.setState({
-  //     occasions: [...sampleOccasions.occasions, occasionName]
-  //   });
-  // };
-
   //TODO loop over all of this so that every card is displayed not just [0]
-  const { name, occasion, photo1, photo2, photo3 } = props.occasion || {
+  const { key, name, occasion, photo1, photo2, photo3 } = props.occasions || {
+    key: '',
     name: '',
     occasion: '',
     photo1: 'Loading...',
@@ -38,9 +22,9 @@ export default function Occasion(props) {
       </div>
       <div className='userPhotos'>
         <ul className='userPhotos'>
-          <Photo picture={photo1} description={name} />
-          <Photo picture={photo2} description={name} />
-          <Photo picture={photo3} description={name} />
+          <Photo picture={photo1} description={name} key={key} />
+          <Photo picture={photo2} description={name} key={key} />
+          <Photo picture={photo3} description={name} key={key} />
         </ul>
       </div>
     </div>
