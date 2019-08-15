@@ -23,22 +23,36 @@ const AddOccasion = props => {
             <input type='text' placeholder='Date Night!' className='addInput' />
           </div>
           <div className='photoUploader'>
+            {/* TODO change Select Photo to Photo Selected on upload event */}
+            {/* TODO add error message for incorrect file type */}
             <p className='uploadPhoto'>Upload 3 Photos</p>
             <input
-              type='text'
-              placeholder='upload photo here'
+              type='file'
+              id='files'
               className='uploadPhoto'
+              accept='image/png, image/jpeg'
             />
+            <label for='files' className='fileSelector'>
+              Select Photo
+            </label>
             <input
-              type='text'
-              placeholder='upload photo here'
+              type='file'
+              id='files'
               className='uploadPhoto'
+              accept='image/png, image/jpeg'
             />
+            <label for='files' className='fileSelector'>
+              Select Photo
+            </label>
             <input
-              type='text'
-              placeholder='upload photo here'
+              type='file'
+              id='files'
               className='uploadPhoto'
+              accept='image/png, image/jpeg'
             />
+            <label for='files' className='fileSelector'>
+              Select Photo
+            </label>
           </div>
           {/* never access the real dom from the virtual dom */}
           <button
@@ -52,7 +66,7 @@ const AddOccasion = props => {
               }, 1500);
             }}
           >
-            Sumbit
+            Submit
           </button>
           {showAddedMessage && (
             <div className='addedMessage'>

@@ -31,5 +31,14 @@
 }
 
 .uploadPhoto {
-  margin: 10px;
+  display: none;
+}
+
+.fileSelector {
+  padding: 5px 30px;
+  margin: 5px;
+  border: 1px solid gray;
+  font-size: 0.8em;
+  border: 1px solid gray;
+  border-radius: 2px;
 }
