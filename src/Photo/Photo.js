@@ -7,7 +7,7 @@ class Photo extends Component {
     showWearIt: false
   };
   render() {
-    console.log(this.props.picture);
+    // console.log(this.props);
     return (
       <li className='photoBox' key={this.props.key}>
         <div className='wrapper'>

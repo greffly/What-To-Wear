@@ -5,7 +5,7 @@ import Photo from '../Photo/Photo';
 
 export default function Occasion(props) {
   //TODO loop over all of this so that every card is displayed not just [0]
-  const { key, name, occasion, photo1, photo2, photo3 } = props.occasion || {
+  const { key, name, occasion, photo1, photo2, photo3 } = props || {
     key: '',
     name: '',
     occasion: '',
@@ -13,6 +13,7 @@ export default function Occasion(props) {
     photo2: 'Loading...',
     photo: 'Loading...'
   };
+  console.log(props);
 
   return props.occasion ? (
     <div className='oneUserOccasion'>
