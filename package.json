@@ -2,6 +2,7 @@
   "name": "what-to-wear",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://greffly.github.io/What-To-Wear/",
   "dependencies": {
     "react": "^16.9.0",
     "react-browser-router": "^2.1.2",
@@ -16,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
