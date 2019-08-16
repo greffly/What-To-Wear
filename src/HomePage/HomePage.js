@@ -31,6 +31,7 @@ export default class HomePage extends Component {
       occasions: [...sampleOccasions.occasions, occasionName]
     });
   };
+  // TODO make the math random equation so that it cannot repeat numbers already chosen
   render() {
     const index = Math.floor(Math.random() * this.state.occasions.length);
     return (

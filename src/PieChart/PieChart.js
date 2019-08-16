@@ -1,18 +1,67 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './PieChart.css';
-import PieChart from 'react-minimal-pie-chart';
+import { ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
 
 // need to get data in here somehow?
-export default function PieChartResults(props) {
+const data = [
+  { title: 'One', value: 10 },
+  { title: 'Two', value: 15 },
+  { title: 'Three', value: 20 }
+];
+const colors = ['#0088FE', '#00C49F', '#FFBB28'];
+
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+  index
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  //TODO add a place for the outfit name, maybe on hover?
   return (
-    <div className='PieChartResults'>
-      <PieChart
-        data={[
-          { title: 'One', value: 10, color: '#E38627' },
-          { title: 'Two', value: 15, color: '#C13C37' },
-          { title: 'Three', value: 20, color: '#6A2135' }
-        ]}
-      />
-    </div>
+    <text
+      x={x}
+      y={y}
+      fill='white'
+      textAnchor={x > cx ? 'start' : 'end'}
+      dominantBaseline='central'
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
   );
+};
+
+export default class PieChartResults extends Component {
+  render() {
+    return (
+      <ResponsiveContainer className='container' height={300} width={300}>
+        <PieChart>
+          <Pie
+            data={data}
+            cx='50%'
+            cy='50%'
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={120}
+            fill='#8884d8'
+            dataKey='value'
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={colors[index % colors.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
+    );
+  }
 }
