@@ -8,7 +8,7 @@ const data = [
   { title: 'Two', value: 15 },
   { title: 'Three', value: 20 }
 ];
-const colors = ['#0088FE', '#00C49F', '#FFBB28'];
+const colors = ['#FA8072', '#00C49F', '#FFD700'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -20,7 +20,7 @@ const renderCustomizedLabel = ({
   percent,
   index
 }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.25;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -33,7 +33,7 @@ const renderCustomizedLabel = ({
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline='central'
     >
-      {`${(percent * 100).toFixed(0)}%`}
+      {`${(percent * 100).toFixed(0)}%`} outfit
     </text>
   );
 };

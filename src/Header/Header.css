@@ -5,9 +5,21 @@
   text-align: center;
   position: fixed;
   z-index: 1;
+  display: flex;
+}
+
+h1 {
+  margin: auto;
+  align-self: center;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: 360px) {
+  .header {
+    height: 90px;
+  }
 }

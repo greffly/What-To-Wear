@@ -5,7 +5,7 @@ import './Header.css';
 const Header = props => (
   <div className='header'>
     <h1>
-      <Link to='/'>
+      <Link to='/home'>
         What <span className='to'>to</span> Wear
       </Link>
     </h1>
