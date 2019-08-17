@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://greffly.github.io/What-To-Wear/",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-browser-router": "^2.1.2",
     "react-dom": "^16.9.0",
@@ -18,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "master -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

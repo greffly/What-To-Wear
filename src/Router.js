@@ -8,16 +8,14 @@ import AddOccasion from './AddOccasion/AddOccasion';
 import Results from './Results/Results';
 
 const Router = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={LandingPage} />
-      <Route exact path='/sign-in' component={SignIn} />
-      <Route exact path='/sign-up' component={SignUp} />
-      <Route exact path='/home' component={HomePage} />
-      <Route exact path='/add-occasion' component={AddOccasion} />
-      <Route exact path='/results' component={Results} />
-    </Switch>
-  </BrowserRouter>
+  <Switch>
+    <Route exact path='/' component={LandingPage} />
+    <Route exact path='/sign-in' component={SignIn} />
+    <Route exact path='/sign-up' component={SignUp} />
+    <Route exact path='/home' component={HomePage} />
+    <Route exact path='/add-occasion' component={AddOccasion} />
+    <Route exact path='/results' component={Results} />
+  </Switch>
 );
 
 export default Router;
