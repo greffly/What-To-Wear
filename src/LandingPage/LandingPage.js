@@ -8,7 +8,11 @@ const LandingPage = props => {
     <div className='landingPage'>
       <Header className='header' />
       <div className='introPage'>
-        <img src='/images/models.jpeg' alt='models' className='landingPhoto' />
+        <img
+          src='/public/images/models.jpeg'
+          alt='models'
+          className='landingPhoto'
+        />
         {/* <p className='landingPhoto'>Landing Photo Placeholder</p> */}
         <p className='introBlurb'>
           A social sharing app for helping people find the best possible outfit

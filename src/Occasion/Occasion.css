@@ -1,5 +1,6 @@
 .userPhotos {
   padding: 0;
+  margin-bottom: 30px;
 }
 
 .oneUserOccasion {
@@ -7,6 +8,7 @@
   margin: 20px 20px 0;
   border-radius: 5px;
   padding-top: 1px;
+  width: 280px;
 }
 
 .userName {
