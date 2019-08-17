@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9e3829aa27d17b2e3e7367fbb1093764",
+    "revision": "9f905bc3eeee529f6704d650ed7e1f98",
     "url": "/What-To-Wear/index.html"
   },
   {
-    "revision": "127ddee3f90962f60182",
+    "revision": "e68c04bcf35eef4545ee",
     "url": "/What-To-Wear/static/css/main.108fe1a6.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/What-To-Wear/static/js/2.50c0b9c8.chunk.js"
   },
   {
-    "revision": "127ddee3f90962f60182",
-    "url": "/What-To-Wear/static/js/main.32091c49.chunk.js"
+    "revision": "e68c04bcf35eef4545ee",
+    "url": "/What-To-Wear/static/js/main.58b454e1.chunk.js"
   },
   {
     "revision": "a34f8e06722bfe84fd5e",
