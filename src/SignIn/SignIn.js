@@ -7,7 +7,7 @@ const SignIn = props => {
   return (
     <div className='signInPage'>
       <Header className='Header' />
-      <h2 className='signIn'>Sign Up</h2>
+      <h2 className='signIn'>Sign In</h2>
       <form className='signInForm'>
         <div className='username'>
           <label>Username</label>

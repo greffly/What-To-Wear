@@ -1,6 +1,6 @@
 .resultsPage {
   display: grid;
-  grid-template-rows: 100px auto 70px;
+  grid-template-rows: 90px auto 70px;
   width: 100%;
   height: 100vh;
   background-color: white;
@@ -18,8 +18,11 @@
   justify-content: center;
 }
 
+.resultsHeader {
+  font-size: 1.4em;
+}
+
 .submitButtons {
-  font-size: 1em;
   align-self: center;
   bottom: 0;
 }

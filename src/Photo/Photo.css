@@ -21,12 +21,14 @@
 
 .wearThis {
   position: absolute;
-  font-size: 0.9em;
+  font-size: 1em;
   top: 84%;
   align-self: center;
   width: 290px;
   height: 40px;
-  background-color: gainsboro;
+  border: none;
+  background-color: var(--button);
+  color: white;
 }
 
 .wearThis:hover {

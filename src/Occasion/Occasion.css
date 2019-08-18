@@ -4,18 +4,27 @@
 }
 
 .oneUserOccasion {
-  background-color: whitesmoke;
   margin: auto;
   margin-top: 20px;
   border-radius: 5px;
   padding-top: 1px;
   width: 85%;
+  font-family: 'Poiret One', cursive;
+  font-weight: 400;
+  background-color: white;
 }
 
 .userName {
   margin-bottom: 5px;
+  font-size: 1.6em;
+}
+
+.userName,
+.occasionName {
+  font-weight: bold;
 }
 
 .occasionName {
   margin: 0;
+  font-size: 1.2em;
 }

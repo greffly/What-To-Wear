@@ -21,3 +21,8 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.occasionResult {
+  font-size: 1.2em;
+  margin: 20px 0 0;
+}

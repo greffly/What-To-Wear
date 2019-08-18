@@ -6,13 +6,16 @@ import './LandingPage.css';
 const LandingPage = props => {
   return (
     <div className='landingPage'>
-      <Header className='header' />
+      <h1 className='whatWearLanding'>
+        <Link to='/home'>
+          <div className='whatToWearLanding'>
+            What <span className='toLanding'>to</span> Wear
+          </div>
+        </Link>
+      </h1>
+      {/* <Header className='header' /> */}
       <div className='introPage'>
-        <img
-          src='/public/images/models.jpeg'
-          alt='models'
-          className='landingPhoto'
-        />
+        {/* <img src='/images/models.jpg' alt='models' className='landingPhoto' /> */}
         {/* <p className='landingPhoto'>Landing Photo Placeholder</p> */}
         <p className='introBlurb'>
           A social sharing app for helping people find the best possible outfit

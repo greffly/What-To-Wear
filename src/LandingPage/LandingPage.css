@@ -1,9 +1,14 @@
 .landingPage {
   display: grid;
-  grid-template-rows: 100px auto 120px;
+  grid-template-rows: 200px auto 120px;
   width: 100%;
   height: 100vh;
-  background-color: white;
+  background-image: url('/images/closet.png');
+  background-color: rgb(106, 106, 106, 0.8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
 }
 
 .header {
@@ -12,7 +17,7 @@
 
 .introPage {
   display: grid;
-  grid-row: 2;
+  grid-row: 3;
   grid-template-columns: 10% 80% 10%;
   grid-template-rows: 70% 30%;
   font-size: 1.2em;
@@ -22,7 +27,6 @@
   grid-column: 2;
   height: 200px;
   width: 200px;
-  background-color: gainsboro;
   justify-self: center;
   align-self: center;
 }
@@ -30,19 +34,41 @@
 .introBlurb {
   grid-column: 2;
   align-self: center;
+  color: white;
+  font-weight: bold;
 }
 
 .signButtons {
-  grid-row: 3;
+  grid-row: 4;
   align-self: center;
 }
 
 .submitButtons {
   width: 110px;
   height: 45px;
-  background-color: gainsboro;
+  font-family: 'Poiret One', cursive;
+  background-color: var(--button);
   margin: 10px;
   border: none;
-  font-size: 1em;
+  font-size: 1.3em;
+  font-weight: bold;
   border-radius: 5px;
+  color: white;
+}
+
+.whatToWearLanding {
+  display: flex;
+  flex-direction: row;
+}
+.whatWearLanding {
+  font-family: 'Poiret One', cursive;
+  font-size: 2.9em;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.toLanding {
+  font-family: 'Satisfy', cursive;
+  font-size: 0.8em;
+  margin: 8px 8px 8px 14px;
 }

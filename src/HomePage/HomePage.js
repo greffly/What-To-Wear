@@ -6,6 +6,7 @@ import Occasion from '../Occasion/Occasion';
 import sampleOccasions from '../store';
 
 //Id like to style the buttons on this page differently
+//TODO images not loading onto github page, but load on local host. Why?
 export default class HomePage extends Component {
   constructor(props) {
     super(props);

@@ -4,9 +4,11 @@ import './Header.css';
 
 const Header = props => (
   <div className='header'>
-    <h1>
+    <h1 className='whatWear'>
       <Link to='/home'>
-        What <span className='to'>to</span> Wear
+        <div className='whatToWear'>
+          What <span className='to'>to</span> Wear
+        </div>
       </Link>
     </h1>
   </div>
