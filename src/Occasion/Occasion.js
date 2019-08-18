@@ -4,7 +4,6 @@ import './Occasion.css';
 import Photo from '../Photo/Photo';
 
 export default function Occasion(props) {
-  //TODO loop over all of this so that every card is displayed not just [0]
   const { index, name, occasion, photo1, photo2, photo3 } = props || {
     index: null,
     name: '',

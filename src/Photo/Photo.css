@@ -31,16 +31,13 @@
   color: white;
 }
 
-.wearThis:hover {
-  background-color: rgb(196, 196, 196);
-}
-
 .selectWearIt {
   position: absolute;
   text-align: center;
-  top: 20%;
+  top: 30%;
   left: 0;
   right: 0;
   transform: rotate(340deg);
-  background-color: rgb(212, 212, 212, 0.8);
+  background-color: rgb(212, 212, 212, 0.9);
+  font-size: 1.2em;
 }

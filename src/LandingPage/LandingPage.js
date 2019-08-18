@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
 import './LandingPage.css';
 
 const LandingPage = props => {
@@ -13,7 +12,6 @@ const LandingPage = props => {
           </div>
         </Link>
       </h1>
-      {/* <Header className='header' /> */}
       <div className='introPage'>
         {/* <img src='/images/models.jpg' alt='models' className='landingPhoto' /> */}
         {/* <p className='landingPhoto'>Landing Photo Placeholder</p> */}

@@ -29,7 +29,7 @@ const SignUp = props => {
         </div>
         <Link to='/home'>
           <button type='submit' className='submitButtons'>
-            Sign Up!
+            Sign Up
           </button>
         </Link>
       </form>

@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 
 const AddOccasion = props => {
   const [showAddedMessage, setShowAddedMessage] = useState(false);
+  const [files, setFiles] = useState({});
   return (
     <div className='addOccasion'>
       <Header />
@@ -26,33 +27,25 @@ const AddOccasion = props => {
             {/* TODO change Select Photo to Photo Selected on upload event */}
             {/* TODO add error message for incorrect file type */}
             <p className='uploadPhoto'>Upload 3 Photos</p>
-            <input
-              type='file'
-              id='files'
-              className='uploadPhoto'
-              accept='image/png, image/jpeg'
-            />
-            <label for='files' className='fileSelector'>
-              Select Photo
-            </label>
-            <input
-              type='file'
-              id='files'
-              className='uploadPhoto'
-              accept='image/png, image/jpeg'
-            />
-            <label for='files' className='fileSelector'>
-              Select Photo
-            </label>
-            <input
-              type='file'
-              id='files'
-              className='uploadPhoto'
-              accept='image/png, image/jpeg'
-            />
-            <label for='files' className='fileSelector'>
-              Select Photo
-            </label>
+            {[1, 2, 3].map(i => (
+              <div key={i}>
+                <input
+                  type='file'
+                  id={'files' + i}
+                  className='uploadPhoto'
+                  accept='image/png, image/jpeg'
+                  onChange={e =>
+                    setFiles({
+                      ...files,
+                      [e.target.id]: e.target.files[0].name
+                    })
+                  }
+                />
+                <label htmlFor={'files' + i} className='fileSelector'>
+                  {!!files['files' + i] ? files['files' + i] : 'Select Photo'}
+                </label>
+              </div>
+            ))}
           </div>
           {/* never access the real dom from the virtual dom */}
           <button
