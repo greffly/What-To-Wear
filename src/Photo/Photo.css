@@ -41,3 +41,20 @@
   background-color: rgb(212, 212, 212, 0.9);
   font-size: 1.2em;
 }
+
+@media (min-width: 760px) {
+  .wrapper {
+    height: 490px;
+    width: 490px;
+    margin-bottom: 70px;
+  }
+  .photo {
+    width: 500px;
+  }
+  .wearThis {
+    font-size: 1.5em;
+    top: 81%;
+    width: 490px;
+    height: 70px;
+  }
+}

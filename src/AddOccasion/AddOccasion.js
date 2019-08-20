@@ -24,7 +24,6 @@ const AddOccasion = props => {
             <input type='text' placeholder='Date Night!' className='addInput' />
           </div>
           <div className='photoUploader'>
-            {/* TODO change Select Photo to Photo Selected on upload event */}
             {/* TODO add error message for incorrect file type */}
             <p className='uploadPhoto'>Upload 3 Photos</p>
             {[1, 2, 3].map(i => (
@@ -51,6 +50,7 @@ const AddOccasion = props => {
           <button
             type='submit'
             className='submitButtons'
+            id='addOccasionButton'
             onClick={e => {
               e.preventDefault();
               setShowAddedMessage(true);

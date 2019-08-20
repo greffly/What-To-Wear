@@ -35,3 +35,10 @@
     height: 80%;
   }
 }
+
+@media (min-width: 760px) {
+  .occasionResult {
+    font-size: 1.4em;
+    margin-top: 30px;
+  }
+}

@@ -72,3 +72,18 @@
   font-size: 0.8em;
   margin: 8px 8px 8px 14px;
 }
+
+@media (min-width: 760px) {
+  .submitButtons {
+    width: 140px;
+    height: 65px;
+    margin: 20px;
+  }
+  .toLanding {
+    margin: 10px 10px 8px 18px;
+  }
+  .whatWearLanding {
+    font-size: 3.1em;
+    padding-top: 8%;
+  }
+}

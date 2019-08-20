@@ -16,7 +16,7 @@
 
 .userName {
   margin-bottom: 5px;
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
 
 .userName,
@@ -27,4 +27,16 @@
 .occasionName {
   margin: 0;
   font-size: 1.2em;
+}
+
+@media (min-width: 760px) {
+  .userName {
+    font-size: 2em;
+  }
+  .occasionName {
+    margin-bottom: 10px;
+  }
+  .oneUserOccasion {
+    margin-top: 40px;
+  }
 }

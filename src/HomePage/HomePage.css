@@ -53,3 +53,11 @@
   grid-column: 2;
   margin-left: 5px;
 }
+
+@media (min-width: 760px) {
+  .addButton1,
+  .addButton2 {
+    height: 80px;
+    font-size: 1.2em;
+  }
+}

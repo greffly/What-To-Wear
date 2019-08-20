@@ -40,3 +40,13 @@ a {
     height: 80px;
   }
 }
+
+@media screen and (min-width: 760px) {
+  .header {
+    height: 110px;
+  }
+  .to {
+    font-size: 0.8em;
+    margin: 10px 10px 8px 18px;
+  }
+}

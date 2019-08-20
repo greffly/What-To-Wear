@@ -38,3 +38,19 @@
 .redirectToSignIn {
   grid-row: 4;
 }
+
+@media (min-width: 375px) {
+  .signUpPage {
+    grid-template-rows: 120px 40px auto 150px;
+  }
+}
+
+@media (min-width: 760px) {
+  .signUpPage {
+    grid-template-rows: 160px 40px auto 150px;
+  }
+  .signUpInput {
+    padding: 8px 10px;
+    margin: 8px;
+  }
+}

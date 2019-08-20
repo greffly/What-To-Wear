@@ -34,6 +34,11 @@
   margin-top: 10%;
 }
 
+@media (min-width: 375px) {
+  #addAnotherButton {
+    margin-top: 0;
+  }
+}
 @media (min-width: 400px) {
   #addAnotherButton {
     width: 100%;
@@ -42,7 +47,16 @@
     font-size: 1.4em;
     font-weight: bold;
   }
+}
+@media (min-width: 760px) {
   .resultsPage {
-    grid-template-rows: 90px auto 30%;
+    grid-template-rows: 120px auto 15%;
+  }
+  #addAnotherButton {
+    height: 65px;
+    padding: 0 20px;
+  }
+  .resultsHeader {
+    font-size: 1.6em;
   }
 }

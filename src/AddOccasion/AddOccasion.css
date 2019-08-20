@@ -28,7 +28,7 @@
 .uploadPhoto,
 .addInput {
   margin: 5px;
-  padding: 5px 8px;
+  padding: 7px 12px;
 }
 
 .uploadPhoto {
@@ -43,4 +43,39 @@
   font-size: 0.8em;
   border: 1px solid gray;
   border-radius: 2px;
+}
+
+@media (min-width: 375px) {
+  .uploadPhoto,
+  .addInput {
+    margin: 8px;
+    padding: 8px;
+  }
+  .addInput {
+    width: 45%;
+  }
+  .fileSelector {
+    padding: 8px 30px;
+  }
+  #addOccasionButton {
+    margin: 20px;
+  }
+}
+
+@media (min-width: 760px) {
+  .addOccasionTitle,
+  .addOccasionContent {
+    font-size: 1.4em;
+  }
+  .addInput {
+    padding: 10px;
+  }
+  .fileSelector {
+    margin: 10px;
+  }
+  #addOccasionButton {
+    font-size: 1.2em;
+    width: 160px;
+    margin: 25px;
+  }
 }
