@@ -10,7 +10,7 @@
   background-position: center;
   background-blend-mode: darken;
 }
-
+/* TODO closet image is not showing up on androids */
 .header {
   grid-row: 1;
 }

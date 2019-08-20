@@ -38,6 +38,7 @@ const renderCustomizedLabel = ({
   );
 };
 
+//TODO make pie chart outer radius a variable that will change with screen size.
 export default class PieChartResults extends Component {
   render() {
     return (

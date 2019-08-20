@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   width: 80%;
+  height: 70%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
-  align-content: center;
-  justify-content: center;
+  align-items: center;
 }
 
 .pieChartResults {
@@ -25,4 +25,13 @@
 .occasionResult {
   font-size: 1.2em;
   margin: 20px 0 0;
+}
+
+@media (min-width: 400px) {
+  .occasionResult {
+    font-size: 1.3em;
+  }
+  .oneResult {
+    height: 80%;
+  }
 }
