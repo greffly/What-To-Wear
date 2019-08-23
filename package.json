@@ -2,9 +2,15 @@
   "name": "what-to-wear",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3100",
   "homepage": "https://greffly.github.io/What-To-Wear/",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "gh-pages": "^2.1.1",
+    "helmet": "^3.20.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
     "react": "^16.9.0",
     "react-browser-router": "^2.1.2",
     "react-dom": "^16.9.0",
@@ -16,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "nodemon server/app",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
