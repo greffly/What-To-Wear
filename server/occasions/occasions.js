@@ -1,16 +1,18 @@
 const express = require('express');
-const logger = require('logger');
+const logger = require('../logger');
 const xss = require('xss');
 const occasionsService = require('./occasions-service');
 const router = express.Router();
+
+const bodyParser = express.json();
 
 const serializeOccasion = occasion => ({
   id: occasion.id,
   title: xss(occasion.title),
   username: occasion.username,
-  photoOne: xss(occasion.photoOne),
-  photoTwo: xss(occasion.photoTwo),
-  photoThree: xss(occasion.photoThree)
+  photoone: xss(occasion.photoone),
+  phototwo: xss(occasion.phototwo),
+  photothree: xss(occasion.photothree)
 });
 
 router.route('/').get((req, res, next) => {
@@ -22,8 +24,8 @@ router.route('/').get((req, res, next) => {
     .catch(next);
 });
 
-router.post('/').get((req, res, next) => {
-  for (const field of ['title', 'username', 'photoOne', 'photoTwo']) {
+router.route('/').post(bodyParser, (req, res, next) => {
+  for (const field of ['title', 'username', 'photoone', 'phototwo']) {
     if (!req.body[field]) {
       logger.error(`${field} is required`);
       return res
@@ -31,14 +33,13 @@ router.post('/').get((req, res, next) => {
         .send({ error: { message: `${field} is required.` } });
     }
   }
-  const { title, username, photoOne, photoTwo, photoThree } = req.body;
+  const { title, username, photoone, phototwo, photothree } = req.body;
 
-  const occasion = { title, username, photoOne, photoTwo, photoThree };
+  const occasion = { title, username, photoone, phototwo, photothree };
 
   occasionsService
     .insertOccasion(req.app.get('db'), occasion)
     .then(occasion => {
-      logger.info(`Occasion with id ${occasion.id} created`);
       res
         .status(201)
         .location(`/api/occasions/${occasion.id}`)
@@ -47,5 +48,37 @@ router.post('/').get((req, res, next) => {
     .catch(next);
 });
 
-// Export the router.
+router
+  .route('/:occasion_id')
+  .all((req, res, next) => {
+    const { occasion_id } = req.params;
+
+    occasionsService
+      .getById(req.app.get('db'), occasion_id)
+      .then(occasion => {
+        if (!occasion) {
+          logger.error(`occasion with id ${occasion_id} not found`);
+          return res
+            .status(400)
+            .json({ error: { message: `Occasion not found` } });
+        }
+        res.occasion = occasion;
+        next();
+      })
+      .catch(next);
+  })
+  .get((req, res) => {
+    res.json(serializeOccasion(res.occasion));
+  })
+  .delete((req, res, next) => {
+    const { occasion_id } = req.params;
+    occasionsService
+      .deleteOccasion(req.app.get('db'), occasion_id)
+      .then(numRowsAffected => {
+        logger.info(`Occasion with id ${occasion_id} deleted`);
+        res.status(204).end();
+      })
+      .catch(next);
+  });
+
 module.exports = router;
