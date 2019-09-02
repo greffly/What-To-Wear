@@ -3,13 +3,22 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
+const knex = require('knex');
 const { NODE_ENV } = require('./config');
 const users = require('./users/users');
 const occasions = require('./occasions/occasions');
+const { DB_URL } = require('./config');
 
 const port = 3100;
 
 const app = express();
+
+const db = knex({
+  client: 'pg',
+  connection: DB_URL
+});
+
+app.set('db', db);
 
 const morganOption = NODE_ENV === 'production' ? 'tiny' : 'common';
 
