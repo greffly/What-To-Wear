@@ -79,6 +79,37 @@ router
         res.status(204).end();
       })
       .catch(next);
+  })
+  .patch(bodyParser, (req, res, next) => {
+    const { title, username, photoone, phototwo, photothree } = req.body;
+    const occasionToUpdate = {
+      title,
+      username,
+      photoone,
+      phototwo,
+      photothree
+    };
+    const numberOfValues = Object.values(occasionToUpdate).filter(Boolean)
+      .length;
+    if (numberOfValues === 0) {
+      logger.error(`Invalid update without required fields`);
+      return res.status(400).json({
+        error: {
+          message: `Request body must contain either 'title', 'username', 'photoone', 'phototwo', or 'photothree'`
+        }
+      });
+    }
+
+    occasionsService
+      .updateOccasion(
+        req.app.get('db'),
+        req.params.occasion_id,
+        occasionToUpdate
+      )
+      .then(numRowsAffected => {
+        res.status(204).end();
+      })
+      .catch(next);
   });
 
 module.exports = router;
