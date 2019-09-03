@@ -3,52 +3,76 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Header from '../Header/Header';
 import Occasion from '../Occasion/Occasion';
-import sampleOccasions from '../store';
+import OccassionsContext from '../OccasionsContext';
+import config from '../config';
 
 //Id like to style the buttons on this page differently
 export default class HomePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      occasions: []
-    };
-  }
-  setOccassion(occasions) {
+  state = {
+    occasions: [],
+    error: null
+  };
+  setOccassions = occasions => {
     this.setState({
-      occasions
-    });
-  }
-  setOccasionIndex(index) {
-    this.setState({
-      index
-    });
-  }
-  componentDidMount() {
-    this.setState(sampleOccasions);
-  }
-  addOccasion = occasionName => {
-    this.setState({
-      occasions: [...sampleOccasions.occasions, occasionName]
+      occasions,
+      error: null
     });
   };
+  // setOccasionIndex(index) {
+  //   this.setState({
+  //     index
+  //   });
+  // }
+  addOccasion = occasion => {
+    this.setState({
+      occasions: [...this.state.occasions, occasion]
+    });
+  };
+  componentDidMount() {
+    fetch(config.API_ENDPOINT, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error));
+        }
+        console.log(res.json());
+        return res.json();
+      })
+      .then(this.setOccasions)
+      .catch(error => {
+        console.error(error);
+        this.setState({ error });
+      });
+  }
   // TODO make the math random equation so that it cannot repeat numbers already chosen
   render() {
+    const contextValue = {
+      occasions: this.state.occasions,
+      addBookmark: this.addOccasion
+    };
     const index = Math.floor(Math.random() * this.state.occasions.length);
+    console.log(this.state.occasions);
     return (
       <div className='homePage'>
         <Header className='header' />
         <div className='userOccasion'>
-          {this.state.occasions.length > 0 && (
-            <Occasion
-              key={this.state.index}
-              index={this.state.index}
-              name={this.state.occasions[index].name}
-              occasion={this.state.occasions[index].occasion}
-              photo1={this.state.occasions[index].photo1}
-              photo2={this.state.occasions[index].photo2}
-              photo3={this.state.occasions[index].photo3}
-            />
-          )}
+          <OccassionsContext.Provider value={contextValue}>
+            {this.state.occasions.length > 0 && (
+              <Occasion
+                key={this.state.index}
+                index={this.state.index}
+                name={this.state.occasions[index].name}
+                occasion={this.state.occasions[index].occasion}
+                photo1={this.state.occasions[index].photo1}
+                photo2={this.state.occasions[index].photo2}
+                photo3={this.state.occasions[index].photo3}
+              />
+            )}
+          </OccassionsContext.Provider>
         </div>
         <div className='addResultsLink'>
           {/* TODO Change these buttons to responsive icons */}

@@ -25,7 +25,13 @@ router.route('/').get((req, res, next) => {
 });
 
 router.route('/').post(bodyParser, (req, res, next) => {
-  for (const field of ['title', 'username', 'photoone', 'phototwo']) {
+  for (const field of [
+    'title',
+    'username',
+    'photoone',
+    'phototwo',
+    'photothreee'
+  ]) {
     if (!req.body[field]) {
       logger.error(`${field} is required`);
       return res
