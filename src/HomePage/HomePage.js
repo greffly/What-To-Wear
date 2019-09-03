@@ -62,8 +62,8 @@ export default class HomePage extends Component {
           <OccasionsContext.Provider value={contextValue}>
             {this.state.occasions.length > 0 && (
               <Occasion
-                key={this.state.index}
-                index={this.state.index}
+                index={this.state.occasions[index].id}
+                key={this.state.occasions[index].id}
                 name={this.state.occasions[index].username}
                 occasion={this.state.occasions[index].title}
                 photo1={this.state.occasions[index].photoone}

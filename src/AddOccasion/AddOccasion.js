@@ -32,8 +32,7 @@ class AddOccasion extends Component {
       method: 'POST',
       body: JSON.stringify(occasion),
       headers: {
-        'content-type': 'application/json',
-        Accept: 'application/json'
+        'content-type': 'application/json'
       }
     })
       .then(res => {
@@ -43,14 +42,15 @@ class AddOccasion extends Component {
         return res.json();
       })
       // TODO this.context ??
-      .then(data => {
+      .then(occasion => {
         title.value = '';
         username.value = '';
         photoone.value = '';
         phototwo.value = '';
         photothree.value = '';
-        this.context.addOccasion(data);
+        this.props.addOccasion(occasion);
         this.props.history.push('/');
+        console.log(this.props);
       })
       .catch(error => {
         console.error(error);
