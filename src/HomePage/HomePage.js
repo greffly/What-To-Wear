@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Header from '../Header/Header';
 import Occasion from '../Occasion/Occasion';
-import OccassionsContext from '../OccasionsContext';
+import OccasionsContext from '../OccasionsContext';
 import config from '../config';
 
 //Id like to style the buttons on this page differently
@@ -12,17 +12,17 @@ export default class HomePage extends Component {
     occasions: [],
     error: null
   };
-  setOccassions = occasions => {
+  setOccasions = occasions => {
     this.setState({
       occasions,
       error: null
     });
   };
-  // setOccasionIndex(index) {
+  // setOccasionIndex = id => {
   //   this.setState({
-  //     index
+  //     id
   //   });
-  // }
+  // };
   addOccasion = occasion => {
     this.setState({
       occasions: [...this.state.occasions, occasion]
@@ -39,7 +39,6 @@ export default class HomePage extends Component {
         if (!res.ok) {
           return res.json().then(error => Promise.reject(error));
         }
-        console.log(res.json());
         return res.json();
       })
       .then(this.setOccasions)
@@ -50,29 +49,29 @@ export default class HomePage extends Component {
   }
   // TODO make the math random equation so that it cannot repeat numbers already chosen
   render() {
+    console.log(this.state.occasions);
     const contextValue = {
       occasions: this.state.occasions,
-      addBookmark: this.addOccasion
+      addOccasion: this.addOccasion
     };
     const index = Math.floor(Math.random() * this.state.occasions.length);
-    console.log(this.state.occasions);
     return (
       <div className='homePage'>
         <Header className='header' />
         <div className='userOccasion'>
-          <OccassionsContext.Provider value={contextValue}>
+          <OccasionsContext.Provider value={contextValue}>
             {this.state.occasions.length > 0 && (
               <Occasion
                 key={this.state.index}
                 index={this.state.index}
-                name={this.state.occasions[index].name}
-                occasion={this.state.occasions[index].occasion}
-                photo1={this.state.occasions[index].photo1}
-                photo2={this.state.occasions[index].photo2}
-                photo3={this.state.occasions[index].photo3}
+                name={this.state.occasions[index].username}
+                occasion={this.state.occasions[index].title}
+                photo1={this.state.occasions[index].photoone}
+                photo2={this.state.occasions[index].phototwo}
+                photo3={this.state.occasions[index].photothree}
               />
             )}
-          </OccassionsContext.Provider>
+          </OccasionsContext.Provider>
         </div>
         <div className='addResultsLink'>
           {/* TODO Change these buttons to responsive icons */}
