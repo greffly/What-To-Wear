@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import './Photo.css';
+import OccasionsContext from '../OccasionsContext';
 
 class Photo extends Component {
   state = {
@@ -9,6 +10,7 @@ class Photo extends Component {
   render() {
     // console.log(this.props);
     return (
+      // <OccasionsContext.consumer>
       <li className='photoBox' key={this.props.key}>
         <div className='wrapper'>
           <img
@@ -38,6 +40,7 @@ class Photo extends Component {
           </div>
         )}
       </li>
+      // </OccasionsContext.consumer>
     );
   }
 }

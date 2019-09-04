@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Header from '../Header/Header';
 import Occasion from '../Occasion/Occasion';
+import AddOccasion from '../AddOccasion/AddOccasion';
 import OccasionsContext from '../OccasionsContext';
 import config from '../config';
 
@@ -18,6 +19,7 @@ export default class HomePage extends Component {
       error: null
     });
   };
+  //TODO do I need this?
   // setOccasionIndex = id => {
   //   this.setState({
   //     id
@@ -49,17 +51,20 @@ export default class HomePage extends Component {
   }
   // TODO make the math random equation so that it cannot repeat numbers already chosen
   render() {
-    console.log(this.state.occasions);
     const contextValue = {
       occasions: this.state.occasions,
       addOccasion: this.addOccasion
     };
+    console.log(this.state.occasions);
     const index = Math.floor(Math.random() * this.state.occasions.length);
     return (
       <div className='homePage'>
         <Header className='header' />
         <div className='userOccasion'>
           <OccasionsContext.Provider value={contextValue}>
+            {this.state.occasions.length === 0
+              ? setTimeout(<AddOccasion />, 1000)
+              : null}
             {this.state.occasions.length > 0 && (
               <Occasion
                 index={this.state.occasions[index].id}

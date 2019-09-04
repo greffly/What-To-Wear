@@ -8,3 +8,5 @@
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
 {"message":"Occasion with id 9 deleted","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"photothreee is required","level":"error"}

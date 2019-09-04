@@ -1,4 +1,4 @@
-INSERT INTO occasions (username, title, photoOne, photoTwo, photoThree)
+INSERT INTO occasions (username, title, photoone, phototwo, photothree)
 VALUES
  ('Jennifer', 'Meet the Parents', 'jennifer1.jpeg', 'jennifer2.jpg', 'jennifer3.jpg'),
  ('Lady', 'Met Gala', 'gaga1.jpg', 'gaga2.jpg', 'gaga3.jpg'),

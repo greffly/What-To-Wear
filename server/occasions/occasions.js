@@ -30,7 +30,7 @@ router.route('/').post(bodyParser, (req, res, next) => {
     'username',
     'photoone',
     'phototwo',
-    'photothreee'
+    'photothree'
   ]) {
     if (!req.body[field]) {
       logger.error(`${field} is required`);

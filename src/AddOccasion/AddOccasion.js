@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import config from '../config';
-import OccassionsContext from '../OccasionsContext';
+import OccasionsContext from '../OccasionsContext';
 import './AddOccasion.css';
 import Header from '../Header/Header';
 
 //Why is this file not connecting to my backend?
 
 class AddOccasion extends Component {
-  static contextType = OccassionsContext;
+  static contextType = OccasionsContext;
 
   state = {
     error: null,
@@ -17,7 +17,12 @@ class AddOccasion extends Component {
   };
 
   handleSubmit = e => {
+    this.setState({ showAddedMessage: true });
+    setTimeout(() => {
+      this.props.history.push('/results');
+    }, 1500);
     e.preventDefault();
+    console.log('handling submit!');
     const { title, username, photoone, phototwo, photothree } = e.target;
     const occasion = {
       title: title.value,
@@ -27,6 +32,7 @@ class AddOccasion extends Component {
       photothree: photothree.value
     };
     this.setState({ error: null });
+    // axios instead of fetch?
     console.log(JSON.stringify(occasion));
     fetch(config.API_ENDPOINT, {
       method: 'POST',
@@ -39,18 +45,18 @@ class AddOccasion extends Component {
         if (!res.ok) {
           return res.json().then(error => Promise.reject(error));
         }
+        console.log(res.json());
         return res.json();
       })
-      // TODO this.context ??
       .then(occasion => {
         title.value = '';
         username.value = '';
         photoone.value = '';
         phototwo.value = '';
         photothree.value = '';
-        this.props.addOccasion(occasion);
-        this.props.history.push('/');
-        console.log(this.props);
+        this.context.addOccasion(occasion);
+        // this.props.history.push('/');
+        console.log(this.context.addOccasion(occasion));
       })
       .catch(error => {
         console.error(error);
@@ -64,11 +70,17 @@ class AddOccasion extends Component {
         <Header />
         <div className='addOccasionContent'>
           <h2 className='addOccasionTitle'>Add an Occasion</h2>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className='nameInput'>
               <label>Name:</label>
               <br />
-              <input type='text' placeholder='Jane' className='addInput' />
+              <input
+                type='text'
+                name='username'
+                id='username'
+                placeholder='Jane'
+                className='addInput'
+              />
               <br />
             </div>
             <div className='occasionInput'>
@@ -76,6 +88,8 @@ class AddOccasion extends Component {
               <br />
               <input
                 type='text'
+                name='title'
+                id='title'
                 placeholder='Date Night!'
                 className='addInput'
               />
@@ -83,11 +97,11 @@ class AddOccasion extends Component {
             <div className='photoUploader'>
               {/* TODO add error message for incorrect file type */}
               <p className='uploadPhoto'>Upload 3 Photos</p>
-              {[1, 2, 3].map(i => (
+              {['one', 'two', 'three'].map(i => (
                 <div key={i}>
                   <input
                     type='file'
-                    id={'files' + i}
+                    id={'photo' + i}
                     className='uploadPhoto'
                     accept='image/png, image/jpeg'
                     onChange={e =>
@@ -99,9 +113,9 @@ class AddOccasion extends Component {
                       })
                     }
                   />
-                  <label htmlFor={'files' + i} className='fileSelector'>
-                    {!!this.state.files['files' + i]
-                      ? this.state.files['files' + i]
+                  <label htmlFor={'photo' + i} className='fileSelector'>
+                    {!!this.state.files['photo' + i]
+                      ? this.state.files['photo' + i]
                       : 'Select Photo'}
                   </label>
                 </div>
@@ -112,13 +126,6 @@ class AddOccasion extends Component {
               type='submit'
               className='submitButtons'
               id='addOccasionButton'
-              onClick={e => {
-                e.preventDefault();
-                this.setState({ showAddedMessage: true });
-                setTimeout(() => {
-                  this.props.history.push('/results');
-                }, 1500);
-              }}
             >
               Submit
             </button>
