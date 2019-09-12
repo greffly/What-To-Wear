@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import './Photo.css';
-import OccasionsContext from '../OccasionsContext';
 
 class Photo extends Component {
   state = {
-    showWearIt: false
+    showWearIt: false,
+    index: ''
   };
   render() {
-    // console.log(this.props);
     return (
       // <OccasionsContext.consumer>
-      <li className='photoBox' key={this.props.key}>
+      <li className='photoBox' index={this.props.key}>
         <div className='wrapper'>
           <img
             src={this.props.picture}
@@ -24,6 +23,7 @@ class Photo extends Component {
           className='wearThis'
           onClick={e => {
             e.preventDefault();
+            console.log(this.props.index, 'was clicked');
             this.setState({ showWearIt: true });
             setTimeout(() => {
               this.props.history.push('/home');

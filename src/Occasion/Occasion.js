@@ -4,13 +4,13 @@ import './Occasion.css';
 import Photo from '../Photo/Photo';
 
 export default function Occasion(props) {
-  const { index, name, occasion, photo1, photo2, photo3 } = props || {
+  const { index, name, occasion, photoone, phototwo, photothree } = props || {
     index: null,
     name: '',
     occasion: '',
-    photo1: 'Loading...',
-    photo2: 'Loading...',
-    photo: 'Loading...'
+    photoone: 'Loading...',
+    phototwo: 'Loading...',
+    photothree: 'Loading...'
   };
   console.log(props);
 
@@ -22,9 +22,24 @@ export default function Occasion(props) {
       </div>
       <div className='userPhotos'>
         <ul className='userPhotos' key={{ occasion } + { index }}>
-          <Photo picture={photo1} description={name} key={index} />
-          <Photo picture={photo2} description={name} key={index} />
-          <Photo picture={photo3} description={name} key={index} />
+          <Photo
+            picture={photoone}
+            description={name}
+            key={index + 1}
+            index={1}
+          />
+          <Photo
+            picture={phototwo}
+            description={name}
+            key={index + 2}
+            index={2}
+          />
+          <Photo
+            picture={photothree}
+            description={name}
+            key={index + 3}
+            index={3}
+          />
         </ul>
       </div>
     </div>

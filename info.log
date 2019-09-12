@@ -10,3 +10,19 @@
 {"message":"Occasion with id 9 deleted","level":"info"}
 {"message":"title is required","level":"error"}
 {"message":"photothreee is required","level":"error"}
+{"message":"phototwo is required","level":"error"}
+{"message":"Occasion with id 1 deleted","level":"info"}
+{"message":"Occasion with id 2 deleted","level":"info"}
+{"message":"Occasion with id 3 deleted","level":"info"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"Occasion with id 5 deleted","level":"info"}
+{"message":"occasion with id 6 not found","level":"error"}
+{"message":"Occasion with id 19 deleted","level":"info"}
+{"message":"Occasion with id 18 deleted","level":"info"}
+{"message":"Occasion with id 17 deleted","level":"info"}
+{"message":"Occasion with id 16 deleted","level":"info"}
+{"message":"Occasion with id 15 deleted","level":"info"}
+{"message":"Occasion with id 14 deleted","level":"info"}
+{"message":"Occasion with id 13 deleted","level":"info"}
+{"message":"Occasion with id 12 deleted","level":"info"}
+{"message":"Occasion with id 11 deleted","level":"info"}
