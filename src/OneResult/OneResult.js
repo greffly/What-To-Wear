@@ -9,36 +9,35 @@ import PieChart from '../PieChart/PieChart';
 function deleteOccasionRequest(occasionId, cb) {
   //TODO I need to figure out here how to set endpoints for occasions. In my home screen or add occasion I don't have an endpoint, but I need it for delete. How best to implement?
   console.log(occasionId);
-  if (false)
-    fetch(config.API_ENDPOINT + `/${occasionId}`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json'
+  fetch(config.API_ENDPOINT + `/${occasionId}`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(error => {
+          throw error;
+        });
       }
+      return res.json();
     })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(error => {
-            throw error;
-          });
-        }
-        return res.json();
-      })
-      .then(data => {
-        console.log({ data });
-        cb(occasionId);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    .then(data => {
+      console.log({ data });
+      cb(occasionId);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 export default props => {
   return (
     <OccasionsContext.Consumer>
-      {(context, a, b) => (
+      {context => (
         <div className='oneResult'>
-          {console.log(context, a, b)}
+          {console.log(context)}
           <h4 className='occasionResult'>Your {context.title}!</h4>
           <PieChart />
           <div className='editAndDelete'>
