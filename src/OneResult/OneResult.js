@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './OneResult.css';
 import config from '../config';
@@ -6,60 +6,94 @@ import OccasionsContext from '../OccasionsContext';
 import PieChart from '../PieChart/PieChart';
 
 //Will need to import from PieChart.js eventually
-function deleteOccasionRequest(occasionId, cb) {
-  //TODO I need to figure out here how to set endpoints for occasions. In my home screen or add occasion I don't have an endpoint, but I need it for delete. How best to implement?
-  console.log(occasionId);
-  fetch(config.API_ENDPOINT + `/${occasionId}`, {
-    method: 'DELETE',
-    headers: {
-      'content-type': 'application/json'
-    }
-  })
-    .then(res => {
-      if (!res.ok) {
-        return res.json().then(error => {
-          throw error;
-        });
+class OneResult extends Component {
+  static contextType = OccasionsContext;
+
+  state = {
+    error: null,
+    showDeletedMessage: false
+  };
+
+  deleteOccasionRequest(occasionId, cb) {
+    const myResult = {
+      occasionId: 4,
+      title: 'Going to a Gala',
+      username: 'Casey',
+      photoone: 'photoOne',
+      phototwo: 'phototwo',
+      photothree: 'photothree'
+    };
+    console.log(myResult.occasionId);
+    fetch(config.API_ENDPOINT + `/${myResult.occasionId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
       }
-      return res.json();
     })
-    .then(data => {
-      console.log({ data });
-      cb(occasionId);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log({ data });
+        cb(occasionId);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  //TODO navigate to addAnOccasion from deleteMyOccasion button, this.props currently empty object
+  handleSubmit(e) {
+    this.setState({ showDeletedMessage: true });
+    setTimeout(() => {
+      console.log(this.props.history);
+    }, 1500);
+  }
+
+  render() {
+    return (
+      <OccasionsContext.Consumer>
+        {context => (
+          <div className='oneResult'>
+            {console.log(context)}
+            <h4 className='occasionResult'>Your {this.props.occasion}!</h4>
+            <PieChart />
+            <div className='editAndDelete'>
+              <Link to='/edit-occasion'>
+                <button className='editButton'>Edit this Occasion</button>
+              </Link>
+              <button
+                className='deleteButton'
+                onClick={() => {
+                  console.log(context);
+                  this.deleteOccasionRequest(
+                    this.props.id,
+                    context.deleteOccasion
+                  );
+                  this.handleSubmit();
+                  context.history.push('/add-occasion');
+                }}
+              >
+                Delete this Occasion
+              </button>
+            </div>
+            {this.state.showDeletedMessage && (
+              <div className='deletedMessage'>
+                <p>Deleted!</p>
+              </div>
+            )}
+          </div>
+        )}
+      </OccasionsContext.Consumer>
+    );
+  }
 }
 
-export default props => {
-  return (
-    <OccasionsContext.Consumer>
-      {context => (
-        <div className='oneResult'>
-          {console.log(context)}
-          <h4 className='occasionResult'>Your {context.title}!</h4>
-          <PieChart />
-          <div className='editAndDelete'>
-            <Link to='/edit-occasion'>
-              <button className='editButton'>Edit this Occasion</button>
-            </Link>
-            <button
-              className='deleteButton'
-              onClick={() => {
-                console.log(context);
-                deleteOccasionRequest(props.id, context.deleteOccasion);
-              }}
-            >
-              Delete this Occasion
-            </button>
-          </div>
-        </div>
-      )}
-    </OccasionsContext.Consumer>
-  );
-};
-
+export default OneResult;
 // OneResult.defaultProps = {
 //   onClickDelete: () => {}
 // };

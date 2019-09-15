@@ -26,3 +26,18 @@
 {"message":"Occasion with id 13 deleted","level":"info"}
 {"message":"Occasion with id 12 deleted","level":"info"}
 {"message":"Occasion with id 11 deleted","level":"info"}
+{"message":"Occasion with id 1 deleted","level":"info"}
+{"message":"occasion with id 230 not found","level":"error"}
+{"message":"Occasion with id 5 deleted","level":"info"}
+{"message":"Occasion with id 2 deleted","level":"info"}
+{"message":"Occasion with id 3 deleted","level":"info"}
+{"message":"Occasion with id 4 deleted","level":"info"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}
+{"message":"occasion with id 4 not found","level":"error"}

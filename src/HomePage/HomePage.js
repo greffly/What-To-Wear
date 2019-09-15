@@ -4,6 +4,7 @@ import './HomePage.css';
 import Header from '../Header/Header';
 import Occasion from '../Occasion/Occasion';
 import AddOccasion from '../AddOccasion/AddOccasion';
+import OneResult from '../OneResult/OneResult';
 import OccasionsContext from '../OccasionsContext';
 import config from '../config';
 
@@ -62,7 +63,8 @@ export default class HomePage extends Component {
   render() {
     const contextValue = {
       occasions: this.state.occasions,
-      addOccasion: this.addOccasion
+      addOccasion: this.addOccasion,
+      deleteOccasion: this.deleteOccasion
     };
     console.log(this.state.occasions);
     const index = Math.floor(Math.random() * this.state.occasions.length);
@@ -94,7 +96,21 @@ export default class HomePage extends Component {
         <div className='userOccasion'>
           <OccasionsContext.Provider value={contextValue}>
             {this.state.occasions.length === 0
-              ? setTimeout(<AddOccasion />, 1000)
+              ? setTimeout(
+                  <div>
+                    <AddOccasion />
+                    <OneResult
+                      index={this.state.occasions[index].id}
+                      key={this.state.occasions[index].id}
+                      name={this.state.occasions[index].username}
+                      occasion={this.state.occasions[index].title}
+                      photo1={this.state.occasions[index].photoone}
+                      photo2={this.state.occasions[index].phototwo}
+                      photo3={this.state.occasions[index].photothree}
+                    />
+                  </div>,
+                  1000
+                )
               : null}
             {this.state.occasions.length > 0 && (
               <Occasion
