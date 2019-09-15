@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const users = require('./users/users');
 const occasions = require('./occasions/occasions');
+const votes = require('./votes/votes');
 const errorHandler = require('./error-handler');
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use('/api/users', users);
 app.use('/api/occasions', occasions);
+app.use('/api/votes', votes);
 
 app.get('/api', (req, res) => {
   res.json('This app is gonna be awesomesauce!');

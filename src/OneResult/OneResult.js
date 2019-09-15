@@ -9,10 +9,13 @@ import PieChart from '../PieChart/PieChart';
 class OneResult extends Component {
   static contextType = OccasionsContext;
 
-  state = {
-    error: null,
-    showDeletedMessage: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      showDeletedMessage: false
+    };
+  }
 
   deleteOccasionRequest(occasionId, cb) {
     const myResult = {
@@ -59,7 +62,7 @@ class OneResult extends Component {
       <OccasionsContext.Consumer>
         {context => (
           <div className='oneResult'>
-            {console.log(context)}
+            {console.log(this.props)}
             <h4 className='occasionResult'>Your {this.props.occasion}!</h4>
             <PieChart />
             <div className='editAndDelete'>

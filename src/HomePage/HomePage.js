@@ -95,18 +95,18 @@ export default class HomePage extends Component {
         <Header className='header' />
         <div className='userOccasion'>
           <OccasionsContext.Provider value={contextValue}>
-            {this.state.occasions.length === 0
+            {this.state.occasions.length > 0
               ? setTimeout(
                   <div>
                     <AddOccasion />
                     <OneResult
-                      index={this.state.occasions[index].id}
-                      key={this.state.occasions[index].id}
-                      name={this.state.occasions[index].username}
-                      occasion={this.state.occasions[index].title}
-                      photo1={this.state.occasions[index].photoone}
-                      photo2={this.state.occasions[index].phototwo}
-                      photo3={this.state.occasions[index].photothree}
+                    // index={this.state.occasions[index].id}
+                    // key={this.state.occasions[index].id}
+                    // name={this.state.occasions[index].username}
+                    // occasion={this.state.occasions[index].title}
+                    // photo1={this.state.occasions[index].photoone}
+                    // photo2={this.state.occasions[index].phototwo}
+                    // photo3={this.state.occasions[index].photothree}
                     />
                   </div>,
                   1000
