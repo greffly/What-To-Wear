@@ -3,10 +3,12 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
+const path = require('path');
 const { NODE_ENV } = require('./config');
 const users = require('./users/users');
 const occasions = require('./occasions/occasions');
 const votes = require('./votes/votes');
+const upload = require('./upload');
 const errorHandler = require('./error-handler');
 
 const app = express();
@@ -17,10 +19,12 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static(path.resolve('./uploads')));
 
 app.use('/api/users', users);
 app.use('/api/occasions', occasions);
 app.use('/api/votes', votes);
+app.use('/api/upload', upload);
 
 app.get('/api', (req, res) => {
   res.json('This app is gonna be awesomesauce!');

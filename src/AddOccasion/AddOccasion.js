@@ -110,14 +110,15 @@ class AddOccasion extends Component {
                     id={'photo' + i}
                     className='uploadPhoto'
                     accept='image/png, image/jpeg'
-                    onChange={e =>
+                    onChange={e => {
+                      //TODO call the upload service with the file here, get back the url from the url service, instead of e.target.files[0].name use the path returned from the service
                       this.setState({
                         files: {
                           ...this.state.files,
                           [e.target.id]: e.target.files[0].name
                         }
-                      })
-                    }
+                      });
+                    }}
                   />
                   <label htmlFor={'photo' + i} className='fileSelector'>
                     {!!this.state.files['photo' + i]
