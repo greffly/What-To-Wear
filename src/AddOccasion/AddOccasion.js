@@ -9,12 +9,14 @@ import Header from '../Header/Header';
 
 class AddOccasion extends Component {
   static contextType = OccasionsContext;
-
-  state = {
-    error: null,
-    showAddedMessage: false,
-    files: {}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      showAddedMessage: false,
+      files: {}
+    };
+  }
 
   handleSubmit = e => {
     this.setState({ showAddedMessage: true });
@@ -31,6 +33,11 @@ class AddOccasion extends Component {
       phototwo: phototwo.value,
       photothree: photothree.value
     };
+    // OccasionsContext.occasion.title = occasion.title;
+    // OccasionsContext.occasion.username = occasion.username;
+    // OccasionsContext.occasion.photoone = occasion.photoone;
+    // OccasionsContext.occasion.phototwo = occasion.phototwo;
+    // OccasionsContext.occasion.photothree = occasion.photothree;
     this.setState({ error: null });
     // axios instead of fetch?
     console.log(JSON.stringify(occasion));
@@ -95,7 +102,6 @@ class AddOccasion extends Component {
               />
             </div>
             <div className='photoUploader'>
-              {/* TODO add error message for incorrect file type */}
               <p className='uploadPhoto'>Upload 3 Photos</p>
               {['one', 'two', 'three'].map(i => (
                 <div key={i}>

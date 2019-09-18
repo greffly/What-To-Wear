@@ -3,10 +3,14 @@ import { withRouter } from 'react-router';
 import './Photo.css';
 
 class Photo extends Component {
-  state = {
-    showWearIt: false,
-    index: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      showWearIt: false,
+      index: ''
+    };
+  }
+  //TODO how to make picture path show up?
   render() {
     return (
       // <OccasionsContext.consumer>

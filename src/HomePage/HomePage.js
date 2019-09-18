@@ -10,17 +10,20 @@ import config from '../config';
 
 //Id like to style the buttons on this page differently
 export default class HomePage extends Component {
-  state = {
-    occasions: [],
-    error: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      occasions: [],
+      error: null
+    };
+  }
   setOccasions = occasions => {
     this.setState({
       occasions,
       error: null
     });
   };
-  //TODO do I need this?
+  // do I need this?
   // setOccasionIndex = id => {
   //   this.setState({
   //     id
