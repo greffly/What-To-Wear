@@ -42,3 +42,5 @@
 {"message":"occasion with id 4 not found","level":"error"}
 {"message":"occasion with id 4 not found","level":"error"}
 {"message":"photoone is required","level":"error"}
+{"message":"photoone is required","level":"error"}
+{"message":"Occasion with id 35 deleted","level":"info"}

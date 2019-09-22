@@ -70,9 +70,10 @@ export default class HomePage extends Component {
       deleteOccasion: this.deleteOccasion
     };
     console.log(this.state.occasions);
+    //TODO viewedOccasions not coming up in local storage, or it's stuck
+
     const index = Math.floor(Math.random() * this.state.occasions.length);
-    console.log('the index is:', index + 1);
-    // TODO store index in local storage so it won't repeat itself
+    // console.log('the index is:', this.state.occasions[0].id);
     const viewedOccasions =
       localStorage.getItem('viewedOccasions') !== null
         ? JSON.parse(localStorage.getItem('viewedOccasions'))
@@ -90,6 +91,7 @@ export default class HomePage extends Component {
         console.log(viewedOccasions);
       }
     }, 1000);
+
     //TODO don't map over viewedOccasions
     //use index of from viewedOccasions, if it's -1, good to go
 
@@ -102,18 +104,11 @@ export default class HomePage extends Component {
               ? setTimeout(
                   <div>
                     <AddOccasion />
-                    <OneResult
-                    // index={this.state.occasions[index].id}
-                    // key={this.state.occasions[index].id}
-                    // name={this.state.occasions[index].username}
-                    // occasion={this.state.occasions[index].title}
-                    // photo1={this.state.occasions[index].photoone}
-                    // photo2={this.state.occasions[index].phototwo}
-                    // photo3={this.state.occasions[index].photothree}
-                    />
                   </div>,
                   1000
                 )
+                ? null
+                : null
               : null}
             {this.state.occasions.length > 0 && (
               <Occasion
@@ -129,7 +124,6 @@ export default class HomePage extends Component {
           </OccasionsContext.Provider>
         </div>
         <div className='addResultsLink'>
-          {/* TODO Change these buttons to responsive icons */}
           <Link to='/add-occasion'>
             <p className='addButton1'>Add an Occasion</p>
           </Link>

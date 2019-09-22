@@ -25,21 +25,16 @@ class AddOccasion extends Component {
     }, 1500);
     e.preventDefault();
     console.log('handling submit!');
-    const { title, username, photoone, phototwo, photothree } = e.target;
+    const { title, username } = e.target;
+    const { photoone, phototwo, photothree } = this.state.files;
     const occasion = {
       title: title.value,
       username: username.value,
-      photoone: photoone.value,
-      phototwo: phototwo.value,
-      photothree: photothree.value
+      photoone,
+      phototwo,
+      photothree
     };
-    // OccasionsContext.occasion.title = occasion.title;
-    // OccasionsContext.occasion.username = occasion.username;
-    // OccasionsContext.occasion.photoone = occasion.photoone;
-    // OccasionsContext.occasion.phototwo = occasion.phototwo;
-    // OccasionsContext.occasion.photothree = occasion.photothree;
     this.setState({ error: null });
-    // axios instead of fetch?
     console.log(JSON.stringify(occasion));
     fetch(config.API_ENDPOINT, {
       method: 'POST',
@@ -112,17 +107,32 @@ class AddOccasion extends Component {
                     accept='image/png, image/jpeg'
                     onChange={e => {
                       //TODO call the upload service with the file here, get back the url from the url service, instead of e.target.files[0].name use the path returned from the service
-                      this.setState({
-                        files: {
-                          ...this.state.files,
-                          [e.target.id]: e.target.files[0].name
-                        }
-                      });
+                      const data = new FormData();
+                      data.append('image', e.target.files[0]);
+                      fetch('/api/upload', {
+                        method: 'POST',
+                        body: data
+                      })
+                        .then(res => res.json())
+                        .then(res => {
+                          this.setState({
+                            files: {
+                              ...this.state.files,
+                              ['photo' + i]: res.path
+                            }
+                          });
+                        });
+                      // this.setState({
+                      //   files: {
+                      //     ...this.state.files,
+                      //     [e.target.id]: e.target.files[0].name
+                      //   }
+                      // });
                     }}
                   />
                   <label htmlFor={'photo' + i} className='fileSelector'>
                     {!!this.state.files['photo' + i]
-                      ? this.state.files['photo' + i]
+                      ? 'Photo Added!'
                       : 'Select Photo'}
                   </label>
                 </div>

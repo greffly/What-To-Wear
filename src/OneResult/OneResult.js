@@ -63,9 +63,7 @@ class OneResult extends Component {
         {context => (
           <div className='oneResult'>
             {console.log(context.occasions)}
-            <h4 className='occasionResult'>
-              Your Occasion!{/* Your {OccasionsContext.occasion.title}! */}
-            </h4>
+            <h4 className='occasionResult'>Your {this.props.occasion}</h4>
             <PieChart />
             <div className='editAndDelete'>
               <Link to='/edit-occasion'>
