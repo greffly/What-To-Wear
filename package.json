@@ -20,7 +20,7 @@
     "react-minimal-pie-chart": "^5.0.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.0",
+    "react-scripts": "5.0.1",
     "recharts": "^1.7.1",
     "winston": "^3.2.1",
     "xss": "^1.0.6"
